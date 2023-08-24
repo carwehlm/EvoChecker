@@ -22,6 +22,7 @@ package evochecker.genetic.jmetal.metaheuristics;
 
 import java.util.List;
 
+import evochecker.auxiliary.Utility;
 import evochecker.evaluator.IParallelEvaluator;
 import jmetal.core.Algorithm;
 import jmetal.core.Operator;
@@ -199,19 +200,19 @@ public class pNSGAII extends Algorithm {
           requiredEvaluations = evaluations;
         } // if
       }// if
+
       
       
       
 //	  	//Save the pareto set every 25% evaluations
 //	  	if (maxEvaluations*times/4 <= evaluations){
-//  		System.out.println("Saving Pareto set");
-//  		Ranking rank = new Ranking(population);
-//  		SolutionSet paretoSet = rank.getSubfront(0);
-//  		String filename = "./data/"  + 
-//  				("PROBLEM").toString() + "_" + times;
-//  		paretoSet.printVariablesToFile(filename);
-//  		paretoSet.printObjectivesToFile("data/FUN_NSGAII"+times);
-//  		times ++;
+  		System.out.println("Saving Pareto set");
+  		Ranking rank = new Ranking(population);
+  		SolutionSet paretoSet = rank.getSubfront(0);
+  		String filename = "./data/"  + Utility.getProperty("PROBLEM").toUpperCase() + "/" + times;
+  		paretoSet.printVariablesToFile(filename);
+  		paretoSet.printObjectivesToFile("data/FUN_NSGAII"+times);
+  		times ++;
 //	  	}
       
     } // while
