@@ -266,8 +266,8 @@ public class EvoChecker {
 		//Execute the Algorithm
 		System.out.println("Starting  evolution");
 		SolutionSet solutions = null; 
-		int iterations = ((Integer) algorithm.getInputParameter("iterations")).intValue();
-		for(int i = 0; i < iterations; i++) {
+		//int iterations = ((Integer) algorithm.getInputParameter("iterations")).intValue();
+		for(int i = 0; i < 10; i++) {
 			solutions = algorithm.execute();
 			System.out.println("Saving preliminary results: ");
 			exportResults("./data/", solutions);
