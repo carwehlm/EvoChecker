@@ -118,15 +118,16 @@ public class pNSGAII extends Algorithm {
     }
     
     int times = 0;
-    
+    long startTime = System.currentTimeMillis();
 	
     
     // Generations 
     while (evaluations < maxEvaluations) {
+    	long time = System.currentTimeMillis() - startTime; 
     	System.out.println("Saving Pareto set");
     	Ranking rank = new Ranking(population);
     	SolutionSet paretoSet = rank.getSubfront(0);
-    	String filename = "./data/"  + Utility.getProperty("PROBLEM").toUpperCase() + "/" + times;
+    	String filename = "./data/"  + Utility.getProperty("PROBLEM").toUpperCase() + "/" + times + "_" + time;
 //    	paretoSet.printVariablesToFile(filename);
     	paretoSet.printObjectivesToFile(filename);
     	times ++;
