@@ -265,12 +265,13 @@ public class EvoChecker {
 	private SolutionSet execute() throws Exception{
 		//Execute the Algorithm
 		System.out.println("Starting  evolution");
-//		SolutionSet solutions; 
-//		int iterations = ((Integer) algorithm.getInputParameter("iterations")).intValue();
-//		for(int i = 0; i < iterations; i++) {
-		SolutionSet solutions = algorithm.execute();
-			
-//		}
+		SolutionSet solutions = null; 
+		int iterations = ((Integer) algorithm.getInputParameter("iterations")).intValue();
+		for(int i = 0; i < iterations; i++) {
+			solutions = algorithm.execute();
+			System.out.println("Saving preliminary results: ");
+			exportResults("./data/", solutions);
+		}
 		
 		return solutions;
 	}
