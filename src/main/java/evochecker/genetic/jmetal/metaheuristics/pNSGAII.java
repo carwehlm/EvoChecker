@@ -119,16 +119,17 @@ public class pNSGAII extends Algorithm {
     
     int times = 0;
     
-	System.out.println("Saving Pareto set");
-	Ranking rank = new Ranking(population);
-	SolutionSet paretoSet = rank.getSubfront(0);
-	String filename = "./data/"  + Utility.getProperty("PROBLEM").toUpperCase() + "/" + times;
-//	paretoSet.printVariablesToFile(filename);
-	paretoSet.printObjectivesToFile(filename);
-	times ++;
+	
     
     // Generations 
     while (evaluations < maxEvaluations) {
+    	System.out.println("Saving Pareto set");
+    	Ranking rank = new Ranking(population);
+    	SolutionSet paretoSet = rank.getSubfront(0);
+    	String filename = "./data/"  + Utility.getProperty("PROBLEM").toUpperCase() + "/" + times;
+//    	paretoSet.printVariablesToFile(filename);
+    	paretoSet.printObjectivesToFile(filename);
+    	times ++;
     	System.out.println("Evaluations:\t" + evaluations);
     	    	
       // Create the offSpring solutionSet      
