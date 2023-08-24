@@ -117,7 +117,15 @@ public class pNSGAII extends Algorithm {
       evaluations ++ ;
     }
     
-    int times = 1;
+    int times = 0;
+    
+	System.out.println("Saving Pareto set");
+	Ranking rank = new Ranking(population);
+	SolutionSet paretoSet = rank.getSubfront(0);
+	String filename = "./data/"  + Utility.getProperty("PROBLEM").toUpperCase() + "/" + times;
+//	paretoSet.printVariablesToFile(filename);
+	paretoSet.printObjectivesToFile(filename);
+	times ++;
     
     // Generations 
     while (evaluations < maxEvaluations) {
@@ -206,13 +214,13 @@ public class pNSGAII extends Algorithm {
       
 //	  	//Save the pareto set every 25% evaluations
 //	  	if (maxEvaluations*times/4 <= evaluations){
-  		System.out.println("Saving Pareto set");
-  		Ranking rank = new Ranking(population);
-  		SolutionSet paretoSet = rank.getSubfront(0);
-  		String filename = "./data/"  + Utility.getProperty("PROBLEM").toUpperCase() + "/" + times;
-  		paretoSet.printVariablesToFile(filename);
-  		paretoSet.printObjectivesToFile("data/FUN_NSGAII"+times);
-  		times ++;
+//  		System.out.println("Saving Pareto set");
+//  		Ranking rank = new Ranking(population);
+//  		SolutionSet paretoSet = rank.getSubfront(0);
+//  		String filename = "./data/"  + Utility.getProperty("PROBLEM").toUpperCase() + "/" + times;
+////  		paretoSet.printVariablesToFile(filename);
+//  		paretoSet.printObjectivesToFile("data/FUN_NSGAII"+times);
+//  		times ++;
 //	  	}
       
     } // while
