@@ -46,6 +46,7 @@ import jmetal.qualityIndicator.QualityIndicator;
 import jmetal.util.JMException;
 
 
+
 /**
  * Main EvoChecker class
  * @author sgerasimou
@@ -264,7 +265,12 @@ public class EvoChecker {
 	private SolutionSet execute() throws Exception{
 		//Execute the Algorithm
 		System.out.println("Starting  evolution");
+//		SolutionSet solutions; 
+//		int iterations = ((Integer) algorithm.getInputParameter("iterations")).intValue();
+//		for(int i = 0; i < iterations; i++) {
 		SolutionSet solutions = algorithm.execute();
+			
+//		}
 		
 		return solutions;
 	}
